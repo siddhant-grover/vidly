@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import Heart from './heart';
 import {getMovies} from '../services/fakeMovieService'
 import Paginate from '../Components/Paginate';
+
 function Movies(props) {
         
 const [arr,setArr] = useState(getMovies());
@@ -55,7 +56,7 @@ return (
     }
     </tbody>
     </table>
-    <Paginate totalMovies={arr.length} moviesPerPage={moviesPerPage} paginate={paginate}/>
+    <Paginate totalMovies={arr.length} moviesPerPage={moviesPerPage} paginate={paginate} currentPage={pageNumber}/>
   </main>
 )
            

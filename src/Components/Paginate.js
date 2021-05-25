@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types'
 function Paginate(props) {
     let length = Math.ceil(props.totalMovies/props.moviesPerPage)
     let arr = new Array(length).fill(0);
@@ -11,7 +11,7 @@ function Paginate(props) {
   <li className="page-item"><a className="page-link" href="!#">Prev</a></li>
       {
           arr.map((item,index)=>{
-              return (<li key={index} className="page-item"><a className="page-link" href="!#" onClick={()=>{props.paginate(index+1)}}>{index+1}</a></li>)
+              return (<li key={index} className={(index+1 ===props.currentPage)? 'page-item active':'page-item'}><a className="page-link" href="!#" onClick={()=>{props.paginate(index+1)}}>{index+1}</a></li>)
           })
       }
       <li className="page-item"><a className="page-link" href="!#">Next</a></li>
@@ -21,6 +21,14 @@ function Paginate(props) {
 </nav>
         </div>
     );
+}
+Paginate.propTypes={
+        totalMovies:PropTypes.number.isRequired,
+        moviesPerPage:PropTypes.number.isRequired,
+        paginate:PropTypes.func.isRequired,
+        currentPage:PropTypes.number.isRequired,
+        
+
 }
 
 export default Paginate;
