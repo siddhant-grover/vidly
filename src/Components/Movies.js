@@ -13,8 +13,10 @@ if(arr.length===0){
 const moviesPerPage = 3;
 
 function paginate(pageNo){
+  if(pageNo>0){
     console.log(pageNo)
   setPageNumber(pageNo);
+  }
 }
 
 
